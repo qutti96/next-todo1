@@ -48,7 +48,7 @@ export default function RootLayout({
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
          className={`${notoSansJP.className}`}
       >
-        <div className="w-full max-w-4xl md:w-auto px-10 py-10 my-10 mx-10 transition duration-500 ease-in-out transform bg-white rounded-lg">
+        <div className="w-full max-w-4xl md:w-auto px-10 py-10 my-10 mx-auto transition duration-500 ease-in-out transform bg-white rounded-lg">
           {/* <h1 className="font-bold mb-6 text-3xl text-center">Todo アプリ</h1> */}
           <div className="w-full mx-auto">
             {children}
