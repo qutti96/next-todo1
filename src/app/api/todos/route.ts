@@ -14,7 +14,7 @@ export async function main(){
   }
 }
 
-//taskの全記事取得API
+//全task取得API
 export const GET = async(req:Request, res: NextResponse) => {
   try{
     await main();
@@ -28,7 +28,7 @@ export const GET = async(req:Request, res: NextResponse) => {
   }
 };
 
-//タスク投稿用API
+//新規タスク投稿用API
 export const POST = async(req:Request, res: NextResponse) => {
   try{
     const {content, filter} = await req.json();
@@ -41,4 +41,3 @@ export const POST = async(req:Request, res: NextResponse) => {
     await prisma.$disconnect();
   }
 };
-
