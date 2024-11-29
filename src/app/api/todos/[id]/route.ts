@@ -4,7 +4,7 @@ import { main } from "../route";
 
 const prisma = new PrismaClient();
 
-//ブログ詳細記事取得API
+//idタスク取得API
 export const GET = async(req:Request, res: NextResponse) => {
   try{
     const id: number = parseInt(req.url.split("/todos/")[1]);
@@ -18,7 +18,7 @@ export const GET = async(req:Request, res: NextResponse) => {
   }
 };
 
-//ブログ詳細記事編集API
+//idタスク編集API
 export const PUT = async(req:Request, res: NextResponse) => {
   try{
     const id: number = parseInt(req.url.split("/todos/")[1]);
@@ -37,8 +37,7 @@ export const PUT = async(req:Request, res: NextResponse) => {
   }
 };
 
-//削除用API
-
+//idタスク削除用API
 export const DELETE = async(req:Request, res: NextResponse) => {
   try{
     const id: number = parseInt(req.url.split("/todos/")[1]);
