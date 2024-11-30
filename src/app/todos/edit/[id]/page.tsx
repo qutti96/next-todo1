@@ -46,7 +46,7 @@ const EditTodo = ({params}: {params: {id: string }}) => {
   const handleSubmit = async(e: React.FormEvent) =>{
     e.preventDefault();
     if (contentRef.current && filterRef.current) {
-      toast.loading("編集中です！🚀");
+      toast.loading("update中です！🚀");
       await updateTodo({
         content: contentRef.current?.value,
         filter: filterRef.current?.value,
@@ -54,7 +54,7 @@ const EditTodo = ({params}: {params: {id: string }}) => {
       }
       );
     }
-    toast.success("編集に成功しました！");
+    toast.success("updateに成功しました！");
     router.push("/todos/");
     router.refresh();
     // console.log(titleRef.current?.value);
@@ -71,7 +71,7 @@ const EditTodo = ({params}: {params: {id: string }}) => {
 
   //getしたIDのデータを入力する
   useEffect(() =>{
-    toast.loading("Fetching Todo Details...");
+    // toast.loading("Fetching Todo Details...");
     getBlogByID(parseInt(params.id))
     .then((data) => {
       if(contentRef.current && filterRef.current){
@@ -93,7 +93,6 @@ const EditTodo = ({params}: {params: {id: string }}) => {
       <div className="bg-blue-50 p-8">
         <h2 className="text-2xl font-bold mb-2">todoリスト編集</h2>
         <form
-          onSubmit={handleSubmit}
           className="flex items-center justify-start mt-4">
           <textarea
             ref={contentRef}
@@ -107,12 +106,15 @@ const EditTodo = ({params}: {params: {id: string }}) => {
           type="text"
           className="w-1/5 block px-5 py-3 ml-4 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
           />
-          <button 
-            className="px-10 py-4  ml-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-700 rounded-xl hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+          <button
+          type="submit"
+          onClick={handleSubmit}
+          className="px-10 py-4  ml-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-700 rounded-xl hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
           >
             更新
           </button>
           <button 
+          type="button"
             onClick={handleDeleteTodo}
             className="px-10 py-4  ml-2 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-red-700 rounded-xl hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
           >
